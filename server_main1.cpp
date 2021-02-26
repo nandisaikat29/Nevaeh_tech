@@ -53,7 +53,7 @@ int main(int argc , char *argv[])
                 	fin.open("log.txt");
                 	fout.open("log.txt",ios::app);
                 	if(fin.is_open()){
-                		fout<<client_ip<<"  ";
+                		fout<<client_ip<<" : ";
                 		fout<<buffer;
                 		fin.close();
                 		fout.close();
@@ -65,6 +65,14 @@ int main(int argc , char *argv[])
                 puts("enter message : ");
                 fgets(message,2000,stdin);
                 end=time(NULL);
+                	fin.open("log.txt");
+                	fout.open("log.txt",ios::app);
+                	if(fin.is_open()){
+                		fout<<"server : "<<"  ";
+                		fout<<message;
+                		fin.close();
+                		fout.close();
+                	}	
                 if(difftime(end,start)<=10)
                 write(new_socket , message , strlen(message));
                 
