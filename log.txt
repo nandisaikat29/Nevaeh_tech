@@ -1,4 +1,7 @@
-127.0.0.1 : ok
-server :   good
-127.0.0.1 : very good
-server :   obviosuly
+127.0.0.1  hi
+server : hi
+127.0.0.1  ok
+server : ok
+127.0.0.1  good
+server : good
+127.0.0.1  ok

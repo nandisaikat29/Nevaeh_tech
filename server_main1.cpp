@@ -7,11 +7,12 @@
 #include<stdlib.h>
 #include<time.h>
 #include<fstream>
-#define PORT 8098
+#include<iostream>
+#define PORT 6200
 using namespace std;
 int main(int argc , char *argv[])
 {
-        int socket_desc , new_socket , c;
+        int socket_desc , new_socket , cp,c;
         struct sockaddr_in server , client;
         socket_desc = socket(AF_INET , SOCK_STREAM , 0);
         if (socket_desc == -1)
@@ -53,7 +54,7 @@ int main(int argc , char *argv[])
                 	fin.open("log.txt");
                 	fout.open("log.txt",ios::app);
                 	if(fin.is_open()){
-                		fout<<client_ip<<" : ";
+                		fout<<client_ip<<"  ";
                 		fout<<buffer;
                 		fin.close();
                 		fout.close();
@@ -64,15 +65,16 @@ int main(int argc , char *argv[])
                 start=time(NULL);
                 puts("enter message : ");
                 fgets(message,2000,stdin);
-                end=time(NULL);
                 	fin.open("log.txt");
                 	fout.open("log.txt",ios::app);
                 	if(fin.is_open()){
-                		fout<<"server : "<<"  ";
-                		fout<<message;
+                		fout<<"server : ";
+                		fout<<buffer;
                 		fin.close();
                 		fout.close();
-                	}	
+                	}
+ 
+                end=time(NULL);
                 if(difftime(end,start)<=10)
                 write(new_socket , message , strlen(message));
                 
