@@ -6,7 +6,7 @@
 #include<netinet/in.h>
 #include<unistd.h>
 #include<iostream>
-#define PORT 6200
+#define PORT 1300
 using namespace std;
 int main(int argc , char *argv[])
 {

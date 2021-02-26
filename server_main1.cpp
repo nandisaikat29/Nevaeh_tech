@@ -1,14 +1,14 @@
 #include<stdio.h>
-#include<string.h>      //strlen
+#include<string.h>      
 #include<sys/socket.h>
-#include<arpa/inet.h>   //inet_addr
-#include<unistd.h>      //write
+#include<arpa/inet.h>   
+#include<unistd.h>      
 #include<netinet/in.h>
 #include<stdlib.h>
 #include<time.h>
 #include<fstream>
 #include<iostream>
-#define PORT 6200
+#define PORT 1300
 using namespace std;
 int main(int argc , char *argv[])
 {
@@ -54,7 +54,7 @@ int main(int argc , char *argv[])
                 	fin.open("log.txt");
                 	fout.open("log.txt",ios::app);
                 	if(fin.is_open()){
-                		fout<<client_ip<<"  ";
+                		fout<<" server :  ";
                 		fout<<buffer;
                 		fin.close();
                 		fout.close();
@@ -65,15 +65,15 @@ int main(int argc , char *argv[])
                 start=time(NULL);
                 puts("enter message : ");
                 fgets(message,2000,stdin);
-                	fin.open("log.txt");
+		 	fin.open("log.txt");
                 	fout.open("log.txt",ios::app);
                 	if(fin.is_open()){
-                		fout<<"server : ";
+                		fout<<client_ip<<"  ";
                 		fout<<buffer;
                 		fin.close();
                 		fout.close();
                 	}
- 
+                
                 end=time(NULL);
                 if(difftime(end,start)<=10)
                 write(new_socket , message , strlen(message));
